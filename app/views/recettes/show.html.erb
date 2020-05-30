@@ -1,1 +1,68 @@
-<%= @recette.nom %>
+<div class="container container-show-recette">
+  <div class="subcontainer-show-recette">
+    <div class="recette-banner-show">
+      <% if @recette.photo.attached? %>
+        <div class="recette-banner-show recette-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @recette.photo.key %>')">
+          <div class="recette-type-nom">
+            <div class="type-recette-show">
+              <% if @recette.type_recette == 'Entrée' %>
+                <p class="type-entree-show"><%= @recette.type_recette%></p>
+              <% elsif @recette.type_recette == 'Plat' %>
+                <p class="type-plat-show"><%= @recette.type_recette%></p>
+              <% elsif @recette.type_recette == 'Dessert' %>
+                <p class="type-dessert-show"><%= @recette.type_recette%></p>
+              <% elsif @recette.type_recette == 'Apéro' %>
+                <p class="type-apero-show"><%= @recette.type_recette%></p>
+              <% else %>
+                <p class="type-cocktail-show"><%= @recette.type_recette %></p>
+              <% end %>
+            </div>
+            <% if @recette.user.photo.attached? %>
+              <%= cl_image_tag @recette.user.photo.key, class: "avatar-bordered avatar-show" %>
+            <% else %>
+              <img class="avatar-bordered avatar-show" src="https://source.unsplash.com/200x200/?person" alt="">
+            <% end %>
+            <h2><%= @recette.nom %></h2>
+          </div>
+        </div>
+      <% else %>
+        <div class="recette-banner-show recette-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/1600x900/?cooking')">
+          <div class="recette-type-nom">
+            <div class="type-recette-show">
+              <% if @recette.type_recette == 'Entrée' %>
+                <p class="type-entree-show"><%= @recette.type_recette%></p>
+              <% elsif @recette.type_recette == 'Plat' %>
+                <p class="type-plat-show"><%= @recette.type_recette%></p>
+              <% elsif @recette.type_recette == 'Dessert' %>
+                <p class="type-dessert-show"><%= @recette.type_recette%></p>
+              <% elsif @recette.type_recette == 'Apéro' %>
+                <p class="type-apero-show"><%= @recette.type_recette%></p>
+              <% else %>
+                <p class="type-cocktail-show"><%= @recette.type_recette %></p>
+              <% end %>
+            </div>
+            <% if @recette.user.photo.attached? %>
+              <%= cl_image_tag @recette.user.photo.key, class: "avatar-bordered avatar-show" %>
+            <% else %>
+              <img class="avatar-bordered avatar-show" src="https://source.unsplash.com/200x200/?person" alt="">
+            <% end %>
+            <h2><%= @recette.nom %></h2>
+          </div>
+        </div>
+      <% end %>
+      <h4 class="show-auteur-recette"><em>Ajoutée par <%= @recette.user.pseudo %></em></h4>
+    </div>
+  </div>
+
+  <div class="recette-show-ingredients-preparation">
+    <div class="recette-show-ingredients">
+      <h3>Ingredients :</h3>
+      <p><%= simple_format(@recette.ingredients) %></p>
+    </div>
+    <div class="recette-show-preparation">
+      <h3>Préparation :</h3>
+      <p><%= simple_format(@recette.preparation) %></p>
+    </div>
+  </div>
+
+</div>

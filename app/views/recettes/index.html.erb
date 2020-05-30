@@ -9,16 +9,26 @@
             <img class="recette-image-index" src="https://source.unsplash.com/400x300/?cooking" alt="">
           <% end %>
           <div class="card-recette-index-type">
-            <%= recette.type_recette %>
+            <% if recette.type_recette == 'Entrée' %>
+              <p class="type-entree"><%= recette.type_recette%></p>
+            <% elsif recette.type_recette == 'Plat' %>
+              <p class="type-plat"><%= recette.type_recette%></p>
+            <% elsif recette.type_recette == 'Dessert' %>
+              <p class="type-dessert"><%= recette.type_recette%></p>
+            <% elsif recette.type_recette == 'Apéro' %>
+              <p class="type-apero"><%= recette.type_recette%></p>
+            <% else %>
+              <p class="type-cocktail"><%= recette.type_recette %></p>
+            <% end %>
           </div>
           <% if recette.user.photo.attached? %>
-            <%= cl_image_tag recette.user.photo.key, class: "avatar-bordered avatar-index-card" %>
+            <%= cl_image_tag recette.user.photo.key, crop: :fill, class: "avatar-bordered avatar-index-card" %>
           <% else %>
             <img class="avatar-bordered avatar-index-card" src="https://source.unsplash.com/200x200/?person" alt="">
           <% end %>
           <div class="card-recette-index-infos">
             <h2><%= recette.nom %></h2>
-            <h3>Ajoutée par <%= recette.user.pseudo %></h3>
+            <h3 class="auteur-index">Ajoutée par <%= recette.user.pseudo %></h3>
             <div class="card-recette-index-nb-temps">
               <p><%= recette.nb_parts %> pers.</p>
               <p><%= recette.temps_total %> min</p>
