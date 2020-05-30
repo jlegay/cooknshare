@@ -1,0 +1,13 @@
+.basic-btn {
+  padding: 7px;
+  background-color: $red;
+  color: white;
+  border: 1px solid $red;
+  border-radius: 5px;
+
+  &:hover{
+    background-color: white;
+    color: $red;
+    transition-duration: 0.3s;
+  }
+}
