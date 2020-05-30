@@ -1,0 +1,9 @@
+<%= simple_form_for (@recette) do |f| %>
+  <%= f.input :nom %>
+  <%= f.input :type_recette %>
+  <%= f.input :nb_parts %>
+  <%= f.input :temps_total %>
+  <%= f.input :ingredients %>
+  <%= f.input :preparation %>
+  <%= f.submit %>
+<% end %>
