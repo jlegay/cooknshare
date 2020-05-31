@@ -2,6 +2,7 @@ class RecettesController < ApplicationController
 
   def index
     @recettes = policy_scope(Recette).order(created_at: :desc)
+    @recettes = Recette.filter(params.slice(:type_recette))
   end
 
   def new
