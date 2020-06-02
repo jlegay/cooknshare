@@ -1,33 +1,4 @@
 <div class="container">
-  <div class="filters-index">
-    <form action="">
-      <div class="container-filters">
-        <div class="filter-section">
-          <p>
-            <a class="basic-btn " data-toggle="collapse" href="#color" role="button" aria-expanded="false" aria-controls="type_recette">
-              Type de recette
-            </a>
-          </p>
-          <div class="collapse <%= "show" if params[:type_recette] %>" id="type_recette">
-            <div class="card card-body">
-              <div><label><input type="checkbox" <%= "checked" if params[:type_recette].to_a.include?("Entrée") %> name="type_recette[]" value="Entrée"> Entrée</label></div>
-              <div><label><input type="checkbox" <%= "checked" if params[:type_recette].to_a.include?("Plat") %> name="type_recette[]" value="Plat"> Plat</label></div>
-              <div><label><input type="checkbox" <%= "checked" if params[:type_recette].to_a.include?("Dessert") %> name="type_recette[]" value="Dessert">Dessert</label></div>
-              <div><label><input type="checkbox" <%= "checked" if params[:type_recette].to_a.include?("Apéro") %> name="type_recette[]" value="Apéro">Apéro</label></div>
-              <div><label><input type="checkbox" <%= "checked" if params[:type_recette].to_a.include?("Dessert") %> name="type_recette[]" value="Cocktail">Cocktail</label></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div>
-        <input type="submit">
-      </div>
-    </form>
-  </div>
-
-
-
   <div class="card-container-index cards-index">
     <% @recettes.each do |recette| %>
       <%= link_to recette_path(recette), style: 'text-decoration: none' do %>
