@@ -22,7 +22,10 @@
             <% else %>
               <img class="avatar-bordered avatar-show" src="https://source.unsplash.com/200x200/?person" alt="">
             <% end %>
-            <h2><%= @recette.nom %></h2>
+            <div class="name-author-show">
+              <h2><%= @recette.nom %></h2>
+              <h4><em>Ajoutée par <%= @recette.user.pseudo %></em></h4>
+            </div>
           </div>
         </div>
       <% else %>
@@ -46,11 +49,13 @@
             <% else %>
               <img class="avatar-bordered avatar-show" src="https://source.unsplash.com/200x200/?person" alt="">
             <% end %>
-            <h2><%= @recette.nom %></h2>
+            <div class="name-author-show">
+              <h2><%= @recette.nom %></h2>
+              <h4><em>Ajoutée par <%= @recette.user.pseudo %></em></h4>
+            </div>
           </div>
         </div>
       <% end %>
-      <h4 class="show-auteur-recette"><em>Ajoutée par <%= @recette.user.pseudo %></em></h4>
     </div>
   </div>
 
