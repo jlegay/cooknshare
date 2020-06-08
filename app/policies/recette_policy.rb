@@ -17,4 +17,16 @@ class RecettePolicy < ApplicationPolicy
     return true
   end
 
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
+
+  def user_recettes?
+    return true
+  end
+
 end

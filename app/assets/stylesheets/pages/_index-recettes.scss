@@ -117,6 +117,22 @@
   height: 32px;
 }
 
+.author-buttons {
+  position: relative;
+  left: 10px;
+  top: -188px;
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+
+  .author-button{
+    color: $red;
+    background-color: white;
+    opacity: 0.7;
+    padding: 5px;
+  }
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards-index {

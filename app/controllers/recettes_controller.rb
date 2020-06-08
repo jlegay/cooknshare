@@ -25,12 +25,24 @@ class RecettesController < ApplicationController
   end
 
   def edit
+    @recette = Recette.find(params[:id])
   end
 
   def update
+    @recette = Recette.find(params[:id])
+    @recette.update(recette_params)
+    redirect_to recette_path(@recette)
   end
 
   def destroy
+    @recette = Recette.find(params[:id])
+    @recette.destroy
+    redirect_to recettes_path
+  end
+
+  def user_recettes
+    @recettes = Recette.where(user_id: current_user.id)
+    authorize @recettes
   end
 
   private

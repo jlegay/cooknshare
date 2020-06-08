@@ -1,0 +1,18 @@
+
+<nav class="navbar fixed-bottom navbar-light bg-light bottom-navbar">
+  <form class="form-inline bottom-navbar-buttons">
+    <%= link_to new_recette_path, :class => "bottom-nav nav-link first-link"  do %>
+      <i class="far fa-plus-square fa-2x"></i>
+    <% end %>
+    <%= link_to recettes_path, :class => "bottom-nav nav-link"  do %>
+      <i class="fas fa-list-ul fa-2x"></i>
+    <% end %>
+    <%= link_to recettes_path, :class => "bottom-nav nav-link"  do %>
+      <i class="fas fa-users fa-2x"></i>
+    <% end %>
+    <%= link_to user_recettes_path, :class => "bottom-nav nav-link last-link"  do %>
+      <i class="fas fa-address-book fa-2x"></i>
+    <% end %>
+  </form>
+</nav>
+
