@@ -2,7 +2,6 @@ class RecettesController < ApplicationController
 
   def index
     @recettes = policy_scope(Recette).order(created_at: :desc)
-    @recettes = Recette.filter(params.slice(:type_recette))
   end
 
   def new
@@ -20,24 +19,27 @@ class RecettesController < ApplicationController
   end
 
   def show
-  @recette = Recette.find(params[:id])
-  authorize @recette
+    @recette = Recette.find(params[:id])
+    authorize @recette
   end
 
   def edit
     @recette = Recette.find(params[:id])
+    authorize @recette
   end
 
   def update
     @recette = Recette.find(params[:id])
+    authorize @recette
     @recette.update(recette_params)
     redirect_to recette_path(@recette)
   end
 
   def destroy
     @recette = Recette.find(params[:id])
+    authorize @recette
     @recette.destroy
-    redirect_to recettes_path
+    redirect_to user_recettes_path
   end
 
   def user_recettes

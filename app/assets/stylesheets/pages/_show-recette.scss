@@ -1,12 +1,4 @@
-.container-show-recette{
-  box-shadow: 12px 12px 20px 0.5px rgba(0, 0, 0, .2);
-  border-radius: 5px;
-  background-color: white;
-  padding: 1.25rem;
-  padding-bottom: 30px;
-  margin-bottom: 50px;
-  margin-top: 20px;
-}
+
 
 .recette-banner-show{
   position: relative;
@@ -101,6 +93,23 @@
   height: 3rem;
 }
 
+.link-back-recettes {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  float: right;
+}
+
+.recette-link {
+  position: absolute;
+  top: 4%;
+  left: 4%;
+  color: $red;
+}
+
+.modal-content {
+  background-color: transparent;
+}
+
 @media (min-width: 100px) and (max-width: 575px) {
   .recette-show-ingredients-preparation {
     grid-template-columns: 1fr;
@@ -119,6 +128,20 @@
   .recette-show-ingredients-preparation {
     grid-template-columns: 1fr 1fr;
   }
+  .recette-banner-show {
+    margin-top: 2rem;
+  }
+
+  .container-show-recette{
+  box-shadow: 12px 12px 20px 0.5px rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  background-color: white;
+  padding: 1.25rem;
+  padding-top: 0;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
 }
 
 // Large devices (desktops, 992px and up)

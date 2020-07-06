@@ -1,0 +1,12 @@
+<div class="container">
+  <%= simple_form_for @recette do |f| %>
+    <%= f.input :nom %>
+    <%= f.input :type_recette, collection: Recette::TYPESRECETTES, label: 'Type de recette' %>
+    <%= f.input :nb_parts, label: 'Nombre de parts' %>
+    <%= f.input :temps_total %>
+    <%= f.input :ingredients %>
+    <%= f.input :preparation, label: 'Préparation' %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, 'Valider', class: "btn full-btn-red center-btn" %>
+  <% end %>
+</div>

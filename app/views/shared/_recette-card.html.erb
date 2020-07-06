@@ -18,18 +18,6 @@
         <p class="type-cocktail"><%= recette.type_recette %></p>
       <% end %>
     </div>
-    <div class="edit-destroy-buttons">
-      <div class="author-buttons">
-        <% if action_name == 'user_recettes' %>
-          <%= link_to recette_path(recette), method: :delete do %>
-            <i class="far fa-trash-alt fa-lg btn-destroy author-button"></i>
-          <% end %>
-          <%= link_to edit_recette_path(recette) do %>
-            <i class="far fa-edit author-button"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
     <% if recette.user.photo.attached? %>
       <%= cl_image_tag recette.user.photo.key, crop: :fill, class: "avatar-bordered avatar-index-card" %>
     <% else %>
@@ -37,7 +25,18 @@
     <% end %>
     <div class="card-recette-index-infos">
       <h2><%= recette.nom %></h2>
-      <h3 class="auteur-index">Ajoutée par <%= recette.user.pseudo %></h3>
+      <div class="edit-destroy-buttons">
+        <div class="author-buttons">
+          <% if action_name == 'user_recettes' %>
+            <%= link_to recette_path(recette), method: :delete, data: {confirm: "Supprimer la recette ?"} do %>
+              <i class="fas fa-trash-alt fa-lg btn-destroy author-button"></i>
+            <% end %>
+            <%= link_to edit_recette_path(recette) do %>
+              <i class="fas fa-pen author-button edit-button"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
       <div class="card-recette-index-nb-temps">
         <p><%= recette.nb_parts %> pers.</p>
         <p><%= recette.temps_total %> min</p>

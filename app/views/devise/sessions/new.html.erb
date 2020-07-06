@@ -22,11 +22,11 @@
       <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %><br />
     <% end %>
     <br>
-    <p>OU</p>
+<!--     <p>OU</p> -->
 
-    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-      <%= link_to "S'inscrire", new_registration_path(resource_name), class: 'btn empty-btn-red sign-up-btn' %><br />
-    <% end %>
+    <%#- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%#= link_to "S'inscrire", new_registration_path(resource_name), class: 'btn empty-btn-red sign-up-btn' %><!-- <br /> -->
+    <%# end %>
   </div>
 
 </div>

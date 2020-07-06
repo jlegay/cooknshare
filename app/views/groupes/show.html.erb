@@ -1,0 +1,28 @@
+<div class="container">
+  <h1><%= @groupe.nom %></h1>
+  <h2>Membres: </h2>
+  <div class="group-members">
+    <% @groupe.memberships.each do |membership| %>
+      <div class="member-avatar-pseudo-show">
+        <% if membership.user.photo.attached? %>
+          <%= cl_image_tag membership.user.photo.key, class: "avatar-bordered" %>
+        <% else %>
+          <img class="avatar-bordered" src="https://source.unsplash.com/200x200/?person" alt="">
+        <% end %>
+        <p class='member-pseudo'><%= membership.user.pseudo.capitalize %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <p>Ajouter un membre</p>
+  <%= simple_form_for [@groupe, @membership] do |f| %>
+    <%= f.input :user_id, label: 'ID' %>
+    <%= f.button :submit, 'Ajouter', class: "btn full-btn-red center-btn" %>
+  <% end %>
+
+<!--   <div class="index-recettes-show-groupe"> -->
+    <%# @recettes.each do |recette| %>
+      <%#= render 'shared/recette-card', recette: recette %>
+<!--   </div> -->
+
+</div>
