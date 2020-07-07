@@ -1,4 +1,6 @@
-
+.container {
+  margin-bottom: 5rem;
+}
 
 .recette-banner-show{
   position: relative;
@@ -26,8 +28,8 @@
 
     .type-entree-show{
       position: absolute;
-      top: 4%;
-      right: 4%;
+      top: 1rem;
+      right: 1rem;
       background-color: $entree;
       padding: 5px;
       border-radius: 5px;
@@ -35,8 +37,8 @@
     }
     .type-plat-show{
       position: absolute;
-      top: 4%;
-      right: 4%;
+      top: 1rem;
+      right: 1rem;
       background-color: $red;
       padding: 5px;
       border-radius: 5px;
@@ -44,8 +46,8 @@
     }
     .type-dessert-show{
       position: absolute;
-      top: 4%;
-      right: 4%;
+      top: 1rem;
+      right: 1rem;
       background-color: $dessert;
       padding: 5px;
       border-radius: 5px;
@@ -53,8 +55,8 @@
     }
     .type-apero-show{
       position: absolute;
-      top: 4%;
-      right: 4%;
+      top: 1rem;
+      right: 1rem;
       background-color: $apero;
       padding: 5px;
       border-radius: 5px;
@@ -62,8 +64,8 @@
     }
     .type-cocktail-show{
       position: absolute;
-      top: 4%;
-      right: 4%;
+      top: 1rem;
+      right: 1rem;
       background-color: $cocktail;
       border: 1px solid $cocktail;
       padding: 5px;
@@ -71,6 +73,14 @@
       font-weight: bolder;
     }
 }
+
+.favorite-on-heart {
+  color: $red;
+  position: relative;
+  left: 1rem;
+  top: -5rem;
+}
+
 
 .recette-show-ingredients-preparation{
    display: grid;

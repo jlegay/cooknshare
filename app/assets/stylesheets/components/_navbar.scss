@@ -1,11 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: relative;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
@@ -19,17 +20,28 @@
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
-  .navbar-lewagon {
+  .desktop-links {
     display: none;
+  }
+
+  .navbar-toggler {
+    visibility: hidden;
   }
 }
 
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+
+  .navbar-toggler {
+    display: block;
+  }
+
   .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: relative;
+  margin-bottom: 3rem;
   }
 
   .navbar-lewagon .navbar-collapse {
@@ -42,6 +54,8 @@
 
   .app-name{
     color: $red;
+    position: absolute;
+    left: 72vh;
     h1 {
       font-family: 'Pacifico';
     }
