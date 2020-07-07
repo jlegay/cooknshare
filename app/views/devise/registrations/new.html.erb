@@ -1,25 +1,24 @@
-Veuillez contacter l'administrateur.
-<!-- <div class="container sign-up-page devise-page">
+<div class="container sign-up-page devise-page">
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
       <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
       <%= f.input :pseudo,
-                  required: true %>
+                    required: true %>
       <%= f.input :password,
-                  required: true,
-                  label: 'Mot de passe',
-                  hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                    required: true,
+                    label: 'Mot de passe',
+                    hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
-                  required: true,
-                  label: 'Confirmation du mot de passe',
-                  input_html: { autocomplete: "new-password" } %>
+                    required: true,
+                    label: 'Confirmation du mot de passe',
+                    input_html: { autocomplete: "new-password" } %>
       <%= f.input :photo, as: :file, label: 'Avatar' %>
     </div>
 
@@ -35,4 +34,6 @@ Veuillez contacter l'administrateur.
       <%= link_to "Se connecter", new_session_path(resource_name), class: 'btn empty-btn-red' %><br />
     <% end %>
   </div>
-</div> -->
+</div>
+
+
