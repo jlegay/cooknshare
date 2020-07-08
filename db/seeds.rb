@@ -19,7 +19,7 @@ puts 'creating users'
 toto = User.create(email: 'toto@mail.com', pseudo: 'toto', password: 'testtest')
 toto.save!
 
-jeanne = User.create(email: 'jeanne@mail.com', pseudo: 'Jeanne', password: 'testtest', admin: true)
+jeanne = User.create(email: 'jeanne@mail.com', pseudo: 'Jeanne', password: 'testtest')
 file = URI.open('https://i.pinimg.com/originals/b2/ec/c3/b2ecc3ceb5c44a7ee0f34f09095bddfa.jpg')
 jeanne.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 jeanne.save!
