@@ -13,7 +13,7 @@ class RecettePolicy < ApplicationPolicy
     return true
   end
 
-  def index
+  def index?
     return true
   end
 

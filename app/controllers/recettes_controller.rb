@@ -1,6 +1,9 @@
 class RecettesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_authorized, only: [ :show, :index]
 
   def index
+    skip_policy_scope
     @recettes = policy_scope(Recette).order(created_at: :desc)
   end
 
