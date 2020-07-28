@@ -4,7 +4,12 @@ class RecettesController < ApplicationController
 
   def index
     skip_policy_scope
-    @recettes = policy_scope(Recette).order(created_at: :desc)
+    # @recettes = policy_scope(Recette).order(created_at: :desc)
+    if params[:query].present?
+      @recettes = policy_scope(Recette).order(created_at: :desc).search(params[:query])
+    else
+      @recettes = policy_scope(Recette).order(created_at: :desc)
+    end
   end
 
   def new

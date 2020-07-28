@@ -5,6 +5,8 @@ class Recette < ApplicationRecord
 
   TYPESRECETTES = ['Entrée', 'Plat', 'Dessert', 'Apéro', 'Cocktail']
 
-  include Filterable
-  scope :filter_by_type_recette, -> (type_recette) { where type_recette: type_recette }
+  searchkick
+
+  # include Filterable
+  # scope :filter_by_type_recette, -> (type_recette) { where type_recette: type_recette }
 end
