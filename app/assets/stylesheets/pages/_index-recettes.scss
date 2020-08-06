@@ -120,27 +120,27 @@
   height: 32px;
 }
 
-.author-buttons {
-  position: absolute;
-  left: 10px;
-  top: 10px;
+// .author-buttons {
+//   position: absolute;
+//   left: 10px;
+//   top: 10px;
 
-  .author-button{
-    color: $red;
-    opacity: 0.7;
-    background-color: white;
-    padding: 7px;
-    border-radius: 5px;
-    width: 2rem;
-    height: 2rem;
-  }
+//   .author-button{
+//     color: $red;
+//     opacity: 0.7;
+//     background-color: white;
+//     padding: 7px;
+//     border-radius: 5px;
+//     width: 2rem;
+//     height: 2rem;
+//   }
 
-  .edit-button{
-    position: absolute;
-    top: 0rem;
-    left: 3rem;
-  }
-}
+//   .edit-button{
+//     position: absolute;
+//     top: 0rem;
+//     left: 3rem;
+//   }
+// }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
