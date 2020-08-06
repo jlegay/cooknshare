@@ -1,17 +1,28 @@
+//Top navbar
+//Mobile : nom de l'app uniquement
+.top-navbar-mobile {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+//Desktop
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
   position: relative;
+  margin-bottom: 3rem;
+
+  .navbar-brand img {
+    width: 40px;
+  }
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
 }
 
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
+//Nom app
 .app-name{
   color: $red;
   h1 {
@@ -19,13 +30,36 @@
   }
 }
 
-@media (min-width: 100px) and (max-width: 575px) {
-  .desktop-links {
+//Navbar bottom mobile
+.bottom-navbar {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  .nav-link{
+    float: left;
+    display: block;
+    color: rgb(150, 150, 150);
+
+  }
+}
+
+
+
+@media (min-width: 100px) and (max-width: 991px) {
+  .navbar-expand-sm {
     display: none;
   }
 
-  .navbar-toggler {
-    visibility: hidden;
+  .top-navbar-mobile {
+    display: block;
+  }
+
+  .bottom-navbar {
+    display: block;
   }
 }
 
@@ -33,32 +67,16 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
 
-  .navbar-toggler {
-    display: block;
+  .top-navbar-mobile {
+    display: none;
   }
 
-  .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  position: relative;
-  margin-bottom: 3rem;
+  .bottom-navbar {
+    display: none;
   }
 
-  .navbar-lewagon .navbar-collapse {
-    flex-grow: 0;
-  }
-
-  .navbar-lewagon .navbar-brand img {
-    width: 40px;
-  }
-
-  .app-name{
-    color: $red;
-    position: absolute;
-    left: 72vh;
-    h1 {
-      font-family: 'Pacifico';
-    }
+  .navbar-expand-sm {
+    display: flex;
   }
 }
 
