@@ -1,38 +1,132 @@
 <div class="container">
-  <div class="card-container-user-recettes cards-index">
+
+  <div class="card-container-index cards-index">
 
     <% @recettes.each do |recette| %>
 
-      <div class="card-index-recette">
+      <div class="recette-card">
 
-        <% if recette.photo.attached? %>
-          <%= cl_image_tag recette.photo.key, crop: :fill, class: "recette-image-index" %>
-        <% else %>
-          <img class="recette-image-index" src="https://source.unsplash.com/400x300/?cooking" alt="">
-        <% end %>
-
-        <div class="card-recette-index-type">
-          <% if recette.type_recette == 'Entrée' %>
-            <p class="type-entree"><%= recette.type_recette%></p>
-          <% elsif recette.type_recette == 'Plat' %>
-            <p class="type-plat"><%= recette.type_recette%></p>
-          <% elsif recette.type_recette == 'Dessert' %>
-            <p class="type-dessert"><%= recette.type_recette%></p>
-          <% elsif recette.type_recette == 'Apéro' %>
-            <p class="type-apero"><%= recette.type_recette%></p>
+        <div class="recette-card-img">
+          <% if recette.photo.attached? %>
+            <%= cl_image_tag recette.photo.key, crop: :fill, class: "recette-card-image" %>
           <% else %>
-            <p class="type-cocktail"><%= recette.type_recette %></p>
+            <img class="recette-card-image" src="https://source.unsplash.com/400x300/?cooking" alt="">
+          <% end %>
+
+
+            <% if recette.user.photo.attached? %>
+              <%= cl_image_tag recette.user.photo.key, crop: :fill, class: "avatar-bordered recette-card-avatar" %>
+            <% else %>
+              <img class="avatar-bordered recette-card-avatar" src="https://source.unsplash.com/200x200/?person" alt="">
+            <% end %>
+
+        </div>
+
+        <div class="edit-destroy-buttons">
+          <div class="author-buttons">
+            <% if action_name == 'user_recettes' %>
+              <%= link_to recette_path(recette), class: "author-button destroy-button", method: :delete, data: {confirm: "Supprimer la recette ?"} do %>
+                <i class="fas fa-trash-alt fa-lg btn-destroy destroy-button"></i>
+              <% end %>
+              <%= link_to edit_recette_path(recette), class: "author-button edit-button" do %>
+                <i class="fas fa-pen author-button edit-button"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="recette-card-type">
+          <% if recette.type_recette == 'Entrée' %>
+            <p class="type type-entree"><%= recette.type_recette%></p>
+          <% elsif recette.type_recette == 'Plat' %>
+            <p class="type type-plat"><%= recette.type_recette%></p>
+          <% elsif recette.type_recette == 'Dessert' %>
+            <p class="type type-dessert"><%= recette.type_recette%></p>
+          <% elsif recette.type_recette == 'Apéro' %>
+            <p class="type type-apero"><%= recette.type_recette%></p>
+          <% else %>
+            <p class="type type-cocktail"><%= recette.type_recette %></p>
           <% end %>
         </div>
 
-        <% if recette.user.photo.attached? %>
-          <%= cl_image_tag recette.user.photo.key, crop: :fill, class: "avatar-bordered avatar-index-card" %>
-        <% else %>
-          <img class="avatar-bordered avatar-index-card" src="https://source.unsplash.com/200x200/?person" alt="">
-        <% end %>
 
-        <div class="card-recette-index-infos">
-          <h2><%= recette.nom %></h2>
+
+        <div class="recette-card-infos">
+
+          <div class="recette-card-nom">
+            <h2><%= recette.nom %></h2>
+          </div>
+
+          <div class="recette-card-nb-tps">
+
+            <div class="recette-card-nb">
+              <p><%= recette.nb_parts %> pers.</p>
+            </div>
+
+            <div class="recette-card-tps">
+              <p><%= recette.temps_total %> min</p>
+            </div>
+
+          </div>
+        </div>
+        <%= link_to "", recette_path(recette), class: "absolute-link" %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<!--   <div class="card-container-index cards-index">
+
+    <% @recettes.each do |recette| %>
+
+      <div class="recette-card">
+
+        <div class="recette-card-img">
+
+          <% if recette.photo.attached? %>
+            <%= cl_image_tag recette.photo.key, crop: :fill, class: "recette-card-image" %>
+          <% else %>
+            <img class="recette-card-image" src="https://source.unsplash.com/400x300/?cooking" alt="">
+          <% end %>
+
+            <% if recette.user.photo.attached? %>
+              <%= cl_image_tag recette.user.photo.key, crop: :fill, class: "avatar-bordered recette-card-avatar" %>
+            <% else %>
+              <img class="avatar-bordered recette-card-avatar" src="https://source.unsplash.com/200x200/?person" alt="">
+            <% end %>
+
+        </div>
+
+        <div class="recette-card-type">
+          <% if recette.type_recette == 'Entrée' %>
+            <p class="type type-entree"><%= recette.type_recette%></p>
+          <% elsif recette.type_recette == 'Plat' %>
+            <p class="type type-plat"><%= recette.type_recette%></p>
+          <% elsif recette.type_recette == 'Dessert' %>
+            <p class="type type-dessert"><%= recette.type_recette%></p>
+          <% elsif recette.type_recette == 'Apéro' %>
+            <p class="type type-apero"><%= recette.type_recette%></p>
+          <% else %>
+            <p class="type type-cocktail"><%= recette.type_recette %></p>
+          <% end %>
+        </div>
+
+
+        <div class="recette-card-infos">
+
+          <div class="recette-card-nom">
+            <h2><%= recette.nom %></h2>
+          </div>
+
           <div class="edit-destroy-buttons">
             <div class="author-buttons">
               <% if action_name == 'user_recettes' %>
@@ -44,17 +138,24 @@
                 <% end %>
               <% end %>
             </div>
-          </div>
 
-          <div class="card-recette-index-nb-temps">
-            <p><%= recette.nb_parts %> pers.</p>
-            <p><%= recette.temps_total %> min</p>
-          </div>
+          <div class="recette-card-nb-tps">
 
+            <div class="recette-card-nb">
+              <p><%= recette.nb_parts %> pers.</p>
+            </div>
+
+            <div class="recette-card-tps">
+              <p><%= recette.temps_total %> min</p>
+            </div>
+
+          </div>
         </div>
+
+
         <%= link_to "", recette_path(recette), class: "absolute-link" %>
         <%#= link_to recette_path(recette), style: 'text-decoration: none' do %>
       </div>
     <% end %>
   </div>
-</div>
+</div> -->
