@@ -72,6 +72,16 @@
       border-radius: 5px;
       font-weight: bolder;
     }
+    .type-base-show{
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: $base;
+      border: 1px solid $base;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: bolder;
+    }
 }
 
 .favorite-on-heart {

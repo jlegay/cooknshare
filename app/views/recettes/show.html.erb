@@ -13,6 +13,8 @@
                 <p class="type-dessert-show"><%= @recette.type_recette%></p>
               <% elsif @recette.type_recette == 'Apéro' %>
                 <p class="type-apero-show"><%= @recette.type_recette%></p>
+              <% elsif @recette.type_recette == 'Base' %>
+                <p class="type-base-show"><%= @recette.type_recette%></p>
               <% else %>
                 <p class="type-cocktail-show"><%= @recette.type_recette %></p>
               <% end %>
@@ -45,6 +47,8 @@
                 <p class="type-dessert-show"><%= @recette.type_recette%></p>
               <% elsif @recette.type_recette == 'Apéro' %>
                 <p class="type-apero-show"><%= @recette.type_recette%></p>
+              <% elsif recette.type_recette == 'Base' %>
+                <p class="type-base-show"><%= @recette.type_recette%></p>
               <% else %>
                 <p class="type-cocktail-show"><%= @recette.type_recette %></p>
               <% end %>

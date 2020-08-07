@@ -44,6 +44,8 @@
             <p class="type type-dessert"><%= recette.type_recette%></p>
           <% elsif recette.type_recette == 'Apéro' %>
             <p class="type type-apero"><%= recette.type_recette%></p>
+          <% elsif recette.type_recette == 'Base' %>
+            <p class="type type-base"><%= recette.type_recette%></p>
           <% else %>
             <p class="type type-cocktail"><%= recette.type_recette %></p>
           <% end %>
