@@ -120,6 +120,18 @@
   background-color: transparent;
 }
 
+.credit-photo {
+  font-size: 9px;
+  position: absolute;
+  bottom: 0px;
+  left: 0.3rem;
+}
+
+.credit-recette{
+  color: rgb(200, 200, 200);
+  font-size: 14px;
+}
+
 @media (min-width: 100px) and (max-width: 575px) {
   .recette-show-ingredients-preparation {
     grid-template-columns: 1fr;

@@ -26,6 +26,11 @@
               <h2><%= @recette.nom %></h2>
               <h4><em>Ajoutée par <%= @recette.user.pseudo %></em></h4>
             </div>
+            <div class="credit-photo">
+              <% if @recette.credit_photo? %>
+                <p>Photo: <%= @recette.credit_photo %></p>
+              <% end %>
+            </div>
           </div>
         </div>
       <% else %>
@@ -66,6 +71,9 @@
     </div>
     <div class="recette-show-preparation">
       <h3>Préparation :</h3>
+      <% if @recette.credit_recette? %>
+        <p class="credit-recette"><em>Source: <%= @recette.credit_recette %></em></p>
+      <% end %>
       <p><%= simple_format(@recette.preparation) %></p>
     </div>
   </div>
