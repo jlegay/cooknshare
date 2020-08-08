@@ -64,13 +64,16 @@
             </div>
 
             <div class="recette-card-nb-tps">
-
-              <div class="recette-card-nb">
-                <p><%= recette.nb_parts %> pers.</p>
+              <div class="temps-preparation temps-card">
+                <%= image_tag "baking.svg" %>  <span><%= recette.temps_preparation.hour %>h<%= recette.temps_preparation.min %></span>
               </div>
 
-              <div class="recette-card-tps">
-                <p><%= recette.temps_total %> min</p>
+              <div class="temps-cuisson temps-card">
+                <%= image_tag "oven.svg" %>  <span><%= recette.temps_cuisson.hour %>h<%= recette.temps_cuisson.min %></span>
+              </div>
+
+              <div class="temps-repos temps-card">
+                <%= image_tag "time.svg" %>  <span><%= recette.temps_repos.hour %>h<%= recette.temps_repos.min %></span>
               </div>
 
             </div>

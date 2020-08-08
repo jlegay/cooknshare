@@ -3,7 +3,11 @@
     <%= f.input :nom %>
     <%= f.input :type_recette, collection: Recette::TYPESRECETTES, label: 'Type de recette' %>
     <%= f.input :nb_parts, label: 'Nombre de parts' %>
-    <%= f.input :temps_total %>
+    <div class="temps">
+      <%= f.input :temps_preparation, label: 'Temps de préparation' %>
+      <%= f.input :temps_cuisson, label: 'Temps de cuisson' %>
+      <%= f.input :temps_repos, label: 'Temps de repos' %>
+    </div>
     <%= f.input :ingredients %>
     <%= f.input :preparation, label: 'Préparation' %>
     <%= f.input :photo, as: :file %>

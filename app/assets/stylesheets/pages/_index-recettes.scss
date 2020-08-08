@@ -94,6 +94,15 @@
   }
 }
 
+.temps-card img {
+  height: 15px;
+  width: auto;
+}
+
+.temps-card {
+  color: rgb(100, 100, 100);
+}
+
 // .recette-card-nb-tps {
 //   position: absolute;
 //   bottom: 0.3rem;
@@ -124,13 +133,12 @@
 .recette-card-nb-tps {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 96%;
   position: absolute;
   bottom: 0rem;
-  // bottom: 0;
   font-size: 12px;
   font-weight: 500;
-  margin: 0;
+  margin: 0.5rem;
   padding-left: 0.3rem;
   padding-right: 0.3rem;
   // height: 32px;

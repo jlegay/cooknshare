@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_091647) do
+ActiveRecord::Schema.define(version: 2020_08_07_142658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_091647) do
     t.string "nom"
     t.string "type_recette"
     t.integer "nb_parts"
-    t.integer "temps_total"
     t.text "ingredients"
     t.text "preparation"
     t.bigint "user_id", null: false
@@ -76,6 +75,9 @@ ActiveRecord::Schema.define(version: 2020_08_07_091647) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "credit_photo"
     t.string "credit_recette"
+    t.time "temps_preparation", default: "2000-01-01 00:00:00"
+    t.time "temps_cuisson", default: "2000-01-01 00:00:00"
+    t.time "temps_repos", default: "2000-01-01 00:00:00"
     t.index ["user_id"], name: "index_recettes_on_user_id"
   end
 
