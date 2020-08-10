@@ -64,17 +64,27 @@
             </div>
 
             <div class="recette-card-nb-tps">
-              <div class="temps-preparation temps-card">
-                <%= image_tag "baking.svg" %>  <span><%= recette.temps_preparation.hour %>h<%= recette.temps_preparation.min %></span>
-              </div>
 
-              <div class="temps-cuisson temps-card">
-                <%= image_tag "oven.svg" %>  <span><%= recette.temps_cuisson.hour %>h<%= recette.temps_cuisson.min %></span>
-              </div>
+              <% if recette.nb_parts? %>
+                <div class="recette-card-nb">
+                  <p><%= recette.nb_parts %> pers.</p>
+                </div>
+              <% else %>
+                <div class="recette-card-nb">
+                  <p>Nb parts: inconnu</p>
+                </div>
 
-              <div class="temps-repos temps-card">
-                <%= image_tag "time.svg" %>  <span><%= recette.temps_repos.hour %>h<%= recette.temps_repos.min %></span>
-              </div>
+              <% end %>
+
+              <% if (recette.temps_preparation + recette.temps_cuisson + recette.temps_repos).hour > 0 || (recette.temps_preparation + recette.temps_cuisson + recette.temps_repos).min > 0  %>
+                <div class="temps-preparation temps-card">
+                  <%= (recette.temps_preparation + recette.temps_cuisson + recette.temps_repos).hour %>h<%= (recette.temps_preparation + recette.temps_cuisson + recette.temps_repos).min %>
+                </div>
+              <% else %>
+                <div class="temps-preparation temps-card">
+                  <p>Durée: inconnue</p>
+                </div>
+              <% end %>
 
             </div>
           </div>

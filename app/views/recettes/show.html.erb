@@ -75,6 +75,26 @@
     </div>
     <div class="recette-show-preparation">
       <h3>Préparation :</h3>
+      <div class="temps-show-global">
+        <% if @recette.temps_preparation.hour > 0 || @recette.temps_preparation.min > 0 %>
+          <div class="temps-show">
+            <%= image_tag "baking.svg" %>
+            <%= @recette.temps_preparation.hour %>h<%= @recette.temps_preparation.min %>
+          </div>
+        <% end %>
+        <% if @recette.temps_cuisson.hour > 0 || @recette.temps_cuisson.min > 0 %>
+          <div class="temps-show">
+            <%= image_tag "oven.svg" %>
+            <%= @recette.temps_cuisson.hour %>h<%= @recette.temps_cuisson.min %>
+          </div>
+        <% end %>
+        <% if @recette.temps_repos.hour > 0 || @recette.temps_repos.min > 0 %>
+          <div class="temps-show">
+            <%= image_tag "time.svg" %>
+            <%= @recette.temps_repos.hour %>h<%= @recette.temps_repos.min %>
+          </div>
+        <% end %>
+      </div>
       <% if @recette.credit_recette? %>
         <p class="credit-recette"><em>Source: <%= @recette.credit_recette %></em></p>
       <% end %>

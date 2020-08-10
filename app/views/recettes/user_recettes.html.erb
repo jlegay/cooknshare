@@ -61,9 +61,26 @@
 
           <div class="recette-card-nb-tps">
 
-            <div class="recette-card-nb">
-              <p><%= recette.nb_parts %> pers.</p>
-            </div>
+            <% if recette.nb_parts? %>
+              <div class="recette-card-nb">
+                <p><%= recette.nb_parts %> pers.</p>
+              </div>
+            <% else %>
+              <div class="recette-card-nb">
+                <p>Nb parts: inconnu</p>
+              </div>
+
+            <% end %>
+
+            <% if (recette.temps_preparation + recette.temps_cuisson + recette.temps_repos).hour > 0 || (recette.temps_preparation + recette.temps_cuisson + recette.temps_repos).min > 0  %>
+              <div class="temps-preparation temps-card">
+                <%= (recette.temps_preparation + recette.temps_cuisson + recette.temps_repos).hour %>h<%= (recette.temps_preparation + recette.temps_cuisson + recette.temps_repos).min %>
+              </div>
+            <% else %>
+              <div class="temps-preparation temps-card">
+                <p>Durée: inconnue</p>
+              </div>
+            <% end %>
 
           </div>
         </div>

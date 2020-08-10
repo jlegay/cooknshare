@@ -2,6 +2,20 @@
   margin-bottom: 5rem;
 }
 
+.temps-show img{
+  height: 20px;
+  width: auto;
+}
+
+.temps-show {
+  color: rgb(30, 30, 30);
+}
+
+.temps-show-global {
+  display: flex;
+  justify-content: space-between;
+}
+
 .recette-banner-show{
   position: relative;
   height: 300px;
