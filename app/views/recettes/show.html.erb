@@ -72,29 +72,21 @@
     <div class="recette-show-ingredients">
       <h3>Ingredients :</h3>
       <p><%= simple_format(@recette.ingredients) %></p>
+      <% if (@recette.temps_preparation + @recette.temps_cuisson + @recette.temps_repos).hour > 0 || (@recette.temps_preparation + @recette.temps_cuisson + @recette.temps_repos).min > 0  %>
+        <h3>Durée :</h3>
+        <% if @recette.temps_preparation.hour > 0 || @recette.temps_preparation.min > 0 %>
+          <%= image_tag "baking.svg", class: "temps-show" %>  <span><%= @recette.temps_preparation.hour %>h<%= @recette.temps_preparation.min %></span>
+        <% end %>
+        <% if @recette.temps_cuisson.hour > 0 || @recette.temps_cuisson.min > 0 %>
+          <%= image_tag "oven.svg", class: "temps-show" %>  <span><%= @recette.temps_cuisson.hour %>h<%= @recette.temps_cuisson.min %></span>
+        <% end %>
+        <% if @recette.temps_repos.hour > 0 || @recette.temps_repos.min > 0 %>
+          <%= image_tag "time.svg", class: "temps-show" %>  <span><%= @recette.temps_repos.hour %>h<%= @recette.temps_repos.min %></span>
+        <% end %>
+      <% end %>
     </div>
     <div class="recette-show-preparation">
       <h3>Préparation :</h3>
-      <div class="temps-show-global">
-        <% if @recette.temps_preparation.hour > 0 || @recette.temps_preparation.min > 0 %>
-          <div class="temps-show">
-            <%= image_tag "baking.svg" %>
-            <%= @recette.temps_preparation.hour %>h<%= @recette.temps_preparation.min %>
-          </div>
-        <% end %>
-        <% if @recette.temps_cuisson.hour > 0 || @recette.temps_cuisson.min > 0 %>
-          <div class="temps-show">
-            <%= image_tag "oven.svg" %>
-            <%= @recette.temps_cuisson.hour %>h<%= @recette.temps_cuisson.min %>
-          </div>
-        <% end %>
-        <% if @recette.temps_repos.hour > 0 || @recette.temps_repos.min > 0 %>
-          <div class="temps-show">
-            <%= image_tag "time.svg" %>
-            <%= @recette.temps_repos.hour %>h<%= @recette.temps_repos.min %>
-          </div>
-        <% end %>
-      </div>
       <% if @recette.credit_recette? %>
         <p class="credit-recette"><em>Source: <%= @recette.credit_recette %></em></p>
       <% end %>

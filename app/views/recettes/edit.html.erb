@@ -3,6 +3,7 @@
     <%= f.input :nom %>
     <%= f.input :type_recette, collection: Recette::TYPESRECETTES, label: 'Type de recette' %>
     <%= f.input :nb_parts, label: 'Nombre de parts' %>
+    </div>
     <div class="temps">
       <%= f.input :temps_preparation, label: 'Temps de préparation' %>
       <%= f.input :temps_cuisson, label: 'Temps de cuisson' %>
