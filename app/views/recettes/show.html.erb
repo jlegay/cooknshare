@@ -75,15 +75,15 @@
       <% if (@recette.temps_preparation + @recette.temps_cuisson + @recette.temps_repos).hour > 0 || (@recette.temps_preparation + @recette.temps_cuisson + @recette.temps_repos).min > 0  %>
         <h3>Durée :</h3>
         <% if @recette.temps_preparation.hour > 0 || @recette.temps_preparation.min > 0 %>
-          <i class="fas fa-mortar-pestle"></i> <span><%= @recette.temps_preparation.hour %>h<%= @recette.temps_preparation.min %></span>
+          <em>Préparation: </em> <span><%= @recette.temps_preparation.hour %>h<%= @recette.temps_preparation.min %></span>
         <% end %>
         <br>
         <% if @recette.temps_cuisson.hour > 0 || @recette.temps_cuisson.min > 0 %>
-          <%= image_tag "cooking.svg", class: "temps-show" %>  <span><%= @recette.temps_cuisson.hour %>h<%= @recette.temps_cuisson.min %></span>
+          <em>Cuisson: </em>  <span><%= @recette.temps_cuisson.hour %>h<%= @recette.temps_cuisson.min %></span>
         <% end %>
         <br>
         <% if @recette.temps_repos.hour > 0 || @recette.temps_repos.min > 0 %>
-          <i class="fas fa-pause-circle"></i>  <span><%= @recette.temps_repos.hour %>h<%= @recette.temps_repos.min %></span>
+          <em>Repos: </em> <span><%= @recette.temps_repos.hour %>h<%= @recette.temps_repos.min %></span>
         <% end %>
       <% end %>
     </div>
