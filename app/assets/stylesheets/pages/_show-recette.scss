@@ -3,7 +3,7 @@
 }
 
 .temps-show img{
-  height: 20px;
+  height: 17px;
   width: auto;
 }
 
@@ -118,6 +118,7 @@
 
    h3{
      color: rgb(30, 30, 30);
+     margin-top: 1rem;
    }
    p{
      color: rgb(30, 30, 30);
@@ -160,6 +161,16 @@
   color: rgb(200, 200, 200);
   font-size: 14px;
 }
+
+.commentaire-all {
+  display: flex;
+  // justify-content: space-around;
+}
+
+// #trait-commentaires {
+//   background-color: rgb(255, 56, 92);
+//   color: rgb(255, 56, 92);
+// }
 
 @media (min-width: 100px) and (max-width: 575px) {
   .recette-show-ingredients-preparation {

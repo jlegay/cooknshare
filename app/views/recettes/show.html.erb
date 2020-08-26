@@ -75,13 +75,15 @@
       <% if (@recette.temps_preparation + @recette.temps_cuisson + @recette.temps_repos).hour > 0 || (@recette.temps_preparation + @recette.temps_cuisson + @recette.temps_repos).min > 0  %>
         <h3>Durée :</h3>
         <% if @recette.temps_preparation.hour > 0 || @recette.temps_preparation.min > 0 %>
-          <%= image_tag "baking.svg", class: "temps-show" %>  <span><%= @recette.temps_preparation.hour %>h<%= @recette.temps_preparation.min %></span>
+          <i class="fas fa-mortar-pestle"></i> <span><%= @recette.temps_preparation.hour %>h<%= @recette.temps_preparation.min %></span>
         <% end %>
+        <br>
         <% if @recette.temps_cuisson.hour > 0 || @recette.temps_cuisson.min > 0 %>
-          <%= image_tag "oven.svg", class: "temps-show" %>  <span><%= @recette.temps_cuisson.hour %>h<%= @recette.temps_cuisson.min %></span>
+          <%= image_tag "cooking.svg", class: "temps-show" %>  <span><%= @recette.temps_cuisson.hour %>h<%= @recette.temps_cuisson.min %></span>
         <% end %>
+        <br>
         <% if @recette.temps_repos.hour > 0 || @recette.temps_repos.min > 0 %>
-          <%= image_tag "time.svg", class: "temps-show" %>  <span><%= @recette.temps_repos.hour %>h<%= @recette.temps_repos.min %></span>
+          <i class="fas fa-pause-circle"></i>  <span><%= @recette.temps_repos.hour %>h<%= @recette.temps_repos.min %></span>
         <% end %>
       <% end %>
     </div>
@@ -93,5 +95,27 @@
       <p><%= simple_format(@recette.preparation) %></p>
     </div>
   </div>
+
+  <% if user_signed_in? & @recette.commentaires.exists? %>
+    <div class="commentaires-show">
+      <hr width="75%" id="trait-commentaires">
+<!--       <h5>Commentaires :</h5> -->
+      <% @recette.commentaires.each do |commentaire| %>
+        <div class="commentaire-all">
+          <div class="commentaire-show-photo-pseudo">
+            <p><em><%= commentaire.user.pseudo %></em> : "<%= commentaire.content %>"</p>
+          </div>
+<!--           <div class="commentaire-show-content">
+            <p><%= commentaire.content %></p>
+          </div> -->
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= simple_form_for [ @recette, @commentaire] do |f| %>
+    <%= f.input :content, label: false, placeholder: "Ecrire un nouveau commentaire" %>
+    <%= f.submit "Poster", class: "btn full-btn-red" %>
+  <% end %>
 
 </div>

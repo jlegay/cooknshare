@@ -13,6 +13,35 @@
       <%= submit_tag "Chercher", class: "btn full-btn-red" %>
       <% end %>
     </div>
+
+<!--     <div class="filters">
+      <form action="" class="form-filtering">
+        <div class="container-filters">
+          <div class="filter-section">
+            <div class="flex-container">
+              <div>TYPE</div>
+              <div>
+                <a data-toggle="collapse" href="#type" role="button" aria-expanded="false" aria-controls="color" class="collapse-sign <%= "open" if params[:type] %>">
+                  <%= params[:type] ? "-" : "+" %>
+                </a>
+              </div>
+            </div>
+            <div class="collapse <%= "show" if params[:type] %>" id="type">
+              <div>
+                <% @types.each do |type| %>
+                  <div>
+                    <label class="label-container">
+                      <input type="checkbox" <%= "checked" if params[:type].to_a.include?(type.capitalize) %> name="type[]" value="<%= type.capitalize %>" class="type-checkbox"> <%= type.capitalize %><span class="checkmark"></span>
+                    </label>
+                  </div>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </div> -->
+
   </div>
 
   <div class="card-container-index cards-index">

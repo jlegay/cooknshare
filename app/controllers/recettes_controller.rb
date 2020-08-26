@@ -10,6 +10,7 @@ class RecettesController < ApplicationController
     else
       @recettes = policy_scope(Recette).order(created_at: :desc)
     end
+    @types = Recette::TYPESRECETTES
   end
 
   def new
@@ -29,6 +30,7 @@ class RecettesController < ApplicationController
   def show
     @recette = Recette.find(params[:id])
     authorize @recette
+    @commentaire = Commentaire.new
   end
 
   def edit
