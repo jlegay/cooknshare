@@ -6,9 +6,10 @@ class RecettesController < ApplicationController
     skip_policy_scope
     # @recettes = policy_scope(Recette).order(created_at: :desc)
     if params[:query].present?
-      @recettes = policy_scope(Recette).order(created_at: :desc).search(params[:query]).page(params[:page]).per(9)
+      @recettes = policy_scope(Recette).order(created_at: :desc).search(params[:query])
+      # @recettes = results.page(params[:page]).per(9)
     else
-      @recettes = policy_scope(Recette).order(created_at: :desc).page(params[:page]).per(9)
+      @recettes = policy_scope(Recette).order(created_at: :desc)
     end
     @types = Recette::TYPESRECETTES
   end
